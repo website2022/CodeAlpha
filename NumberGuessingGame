@@ -1,0 +1,36 @@
+//Number Guessing Game Using java.
+package practise;
+
+import java.util.Scanner;
+
+public class GuessNoGame {
+    public static void main(String args[]) {
+        System.out.println("*** Welcome to the number guessing game! ***\n");
+        Scanner sc = new Scanner(System.in);
+        int maxAttempts = 5;
+        int attempts = 0;
+        int guessnumber = (int) (Math.random() * 101);
+
+        while (attempts < maxAttempts) {
+            System.out.println("Your guessing number: ");
+            int yourguess = sc.nextInt();
+            attempts++;
+            System.out.println("System-generated random number: " + guessnumber);
+
+            if (yourguess == guessnumber) {
+                System.out.println("CONGRATULATIONS!! You guessed the right number.");
+                break;
+            } else if (yourguess > guessnumber) {
+                System.out.println("You guessed a higher number.\nTry again.");
+            } else {
+                System.out.println("You guessed a lower number.\nTry again.");
+            }
+        }
+
+        if (attempts >= maxAttempts) {
+            System.out.println("Oops! You failed to guess the number in " + maxAttempts + " attempts.");
+        }
+
+        sc.close();
+    }
+}
